@@ -1,6 +1,8 @@
 alert_stream
 ============
 
+[![Docker Automated buil](https://img.shields.io/docker/automated/mtpatter/alert_stream.svg)](https://hub.docker.com/r/mtpatter/alert_stream/)
+
 Mock alert stream distribution system using Kafka producers and consumers.
 
 This uses [Confluent's Kafka client for Python](https://github.com/confluentinc/confluent-kafka-python), which wraps the librdkafka C library.
