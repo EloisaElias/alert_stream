@@ -81,6 +81,7 @@ def main():
     streamReader = alertConsumer.AlertConsumer(
                         args.topic, schema_files, **conf)
 
+    msg_count=0
     while True:
         try:
             msg = streamReader.poll(decode=args.avroFlag)
@@ -88,7 +89,10 @@ def main():
             if msg is None:
                 continue
             else:
-                print(msg_text(msg), flush=True)
+                msg_count+=1
+                if msg_count%100 == 0:
+                    print(msg_count, flush=True), 
+                    print(msg_text(msg), flush=True)
                 if args.stampDir:  # Collect postage stamps
                     write_stamp_file(
                         msg.get('cutoutDifference'), args.stampDir)
