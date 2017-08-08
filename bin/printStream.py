@@ -88,7 +88,7 @@ def main():
             if msg is None:
                 continue
             else:
-                print(msg_text(msg))
+                print(msg_text(msg), flush=True)
                 if args.stampDir:  # Collect postage stamps
                     write_stamp_file(
                         msg.get('cutoutDifference'), args.stampDir)
